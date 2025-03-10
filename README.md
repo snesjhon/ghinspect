@@ -35,3 +35,36 @@ A VSCode extension built with TypeScript and Vite.
 ## Features
 
 - Basic Hello World command implementation
+
+---
+
+# Using Composer to build this extension
+
+<details>
+<summary>Initial Setup</summary>
+
+Goal: Generate a repo for a VSCode extension
+use pnpm as a package manager
+use the latest version of extension api
+use the vite build tool
+
+Warnings:
+Don't create an icon for the extension
+Don't focus on adding panels or views yet
+
+</details>
+
+<details>
+<summary>Copying lines of code</summary>
+
+Goal: When the user selects lines of code, have it copy and paste it into a new sidebar
+This sidebar should have a button to copy the lines to the clipboard
+The sidebar's name should be the name of the file with the lines of code
+
+Warnings:
+
+- Only focus on adding a sidebar for now, don't use WebviewPanel. Only extension API.
+- Try to only use the extension api and not any other packages
+- Do not use webview, this should only be extension api
+
+</details>
