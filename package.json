@@ -27,24 +27,35 @@
           "id": "codeSelectionView",
           "name": "Selected Code",
           "type": "tree"
+        },
+        {
+          "id": "ghSearchView",
+          "name": "GitHub Search Results",
+          "type": "tree"
         }
       ]
     },
     "commands": [
       {
-        "command": "ghinspect.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "ghinspect.copyToClipboard",
         "title": "Copy to Clipboard",
         "icon": "$(copy)"
+      },
+      {
+        "command": "ghinspect.searchGitHub",
+        "title": "Search in GitHub",
+        "icon": "$(search)"
       }
     ],
     "menus": {
       "view/item/context": [
         {
           "command": "ghinspect.copyToClipboard",
+          "when": "view == codeSelectionView || view == ghSearchView",
+          "group": "inline"
+        },
+        {
+          "command": "ghinspect.searchGitHub",
           "when": "view == codeSelectionView",
           "group": "inline"
         }
