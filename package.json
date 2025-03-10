@@ -17,19 +17,14 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "git-blame-sidebar",
-          "title": "Git Blame Inspector",
-          "icon": "$(git-commit)"
+          "id": "ghinspect-sidebar",
+          "title": "GH Inspect",
+          "icon": "$(circuit-board)"
         }
       ]
     },
     "views": {
-      "git-blame-sidebar": [
-        {
-          "id": "gitBlameView",
-          "name": "Git Blame Info",
-          "type": "tree"
-        },
+      "ghinspect-sidebar": [
         {
           "id": "prResultView",
           "name": "PR Search Results",
