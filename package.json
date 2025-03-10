@@ -2,7 +2,7 @@
   "name": "ghinspect",
   "displayName": "GH Inspect",
   "version": "0.1.0",
-  "description": "A VSCode extension",
+  "description": "A VSCode extension for inspecting Git blame and related PRs",
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -15,49 +15,46 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "code-selection-sidebar",
-          "title": "Code Selection",
-          "icon": "$(file-code)"
+          "id": "git-blame-sidebar",
+          "title": "Git Blame Inspector",
+          "icon": "$(git-commit)"
         }
       ]
     },
     "views": {
-      "code-selection-sidebar": [
+      "git-blame-sidebar": [
         {
-          "id": "codeSelectionView",
-          "name": "Selected Code",
-          "type": "tree"
-        },
-        {
-          "id": "ghSearchView",
-          "name": "GitHub Search Results",
+          "id": "gitBlameView",
+          "name": "Git Blame Info",
           "type": "tree"
         }
       ]
     },
     "commands": [
       {
+        "command": "ghinspect.getBlameInfo",
+        "title": "Get Git Blame Info",
+        "icon": "$(git-commit)"
+      },
+      {
         "command": "ghinspect.copyToClipboard",
         "title": "Copy to Clipboard",
         "icon": "$(copy)"
-      },
-      {
-        "command": "ghinspect.searchGitHub",
-        "title": "Search in GitHub",
-        "icon": "$(search)"
       }
     ],
     "menus": {
       "view/item/context": [
         {
           "command": "ghinspect.copyToClipboard",
-          "when": "view == codeSelectionView || view == ghSearchView",
+          "when": "view == gitBlameView",
           "group": "inline"
-        },
+        }
+      ],
+      "editor/context": [
         {
-          "command": "ghinspect.searchGitHub",
-          "when": "view == codeSelectionView",
-          "group": "inline"
+          "command": "ghinspect.getBlameInfo",
+          "when": "editorHasSelection",
+          "group": "navigation"
         }
       ]
     }
