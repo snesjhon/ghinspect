@@ -9,7 +9,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
@@ -27,32 +29,37 @@
           "id": "gitBlameView",
           "name": "Git Blame Info",
           "type": "tree"
+        },
+        {
+          "id": "prResultView",
+          "name": "PR Search Results",
+          "type": "tree"
         }
       ]
     },
     "commands": [
       {
-        "command": "ghinspect.getBlameInfo",
-        "title": "Get Git Blame Info",
-        "icon": "$(git-commit)"
+        "command": "ghinspect.searchPRs",
+        "title": "Search PRs for Selected Code",
+        "icon": "$(git-pull-request)"
       },
       {
-        "command": "ghinspect.copyToClipboard",
-        "title": "Copy to Clipboard",
+        "command": "ghinspect.copyPRResults",
+        "title": "Copy All PR Results",
         "icon": "$(copy)"
       }
     ],
     "menus": {
-      "view/item/context": [
+      "view/title": [
         {
-          "command": "ghinspect.copyToClipboard",
-          "when": "view == gitBlameView",
-          "group": "inline"
+          "command": "ghinspect.copyPRResults",
+          "when": "view == prResultView",
+          "group": "navigation"
         }
       ],
       "editor/context": [
         {
-          "command": "ghinspect.getBlameInfo",
+          "command": "ghinspect.searchPRs",
           "when": "editorHasSelection",
           "group": "navigation"
         }
@@ -71,8 +78,5 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
     "vitest": "^1.2.0"
-  },
-  "publisher": "user",
-  "private": true,
-  "type": "module"
+  }
 }
